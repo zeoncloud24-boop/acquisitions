@@ -4,20 +4,25 @@
   "description": "",
   "main": "index.js",
   "imports": {
+    "#src/*": "./src/*",
     "#config/*": "./src/config/*",
     "#controllers/*": "./src/controllers/*",
     "#middleware/*": "./src/middleware/*",
     "#models/*": "./src/models/*",
-    "#routes/*": "./src/config/*",
-    "#services/*": "./src/config/*",
-    "#utils/*": "./src/config/*",
-    "#validatons/*": "./src/config/*"
+    "#routes/*": "./src/routes/*",
+    "#services/*": "./src/services/*",
+    "#utils/*": "./src/utils/*",
+    "#validations/*": "./src/validations/*"
   },
   "scripts": {
+    "start": "node src/index.js",
     "dev": "node --watch src/index.js",
     "db:generate": "drizzle-kit generate",
     "db:migrate": "drizzle-kit migrate",
-    "db:studio": "drizzle-kit studio"
+    "db:studio": "drizzle-kit studio",
+    "dev:docker": "sh ./scripts/dev.sh",
+    "prod:docker": "sh ./scripts/prod.sh",
+    "test": "NODE_OPTIONS=--experimental-vm-modules jest"
   },
   "repository": {
     "type": "git",
@@ -32,20 +37,29 @@
   },
   "homepage": "https://github.com/zeoncloud24-boop/acquisitions#readme",
   "dependencies": {
-    "@neondatabase/serverless": "^1.0.2",
+    "@arcjet/inspect": "^1.0.0-beta.11",
+    "@arcjet/node": "^1.0.0-beta.11",
+    "@neondatabase/serverless": "^1.0.1",
     "bcrypt": "^6.0.0",
     "cookie-parser": "^1.4.7",
-    "cors": "^2.8.6",
-    "dotenv": "^17.2.3",
-    "drizzle-orm": "^0.45.1",
-    "express": "^5.2.1",
+    "cors": "^2.8.5",
+    "dotenv": "^17.2.2",
+    "drizzle-orm": "^0.44.5",
+    "express": "^5.1.0",
     "helmet": "^8.1.0",
-    "jsonwebtoken": "^9.0.3",
+    "jsonwebtoken": "^9.0.2",
     "morgan": "^1.10.1",
-    "winston": "^3.19.0",
-    "zod": "^4.3.5"
+    "winston": "^3.17.0",
+    "zod": "^4.3.6"
   },
   "devDependencies": {
-    "drizzle-kit": "^0.31.8"
+    "@eslint/js": "^9.35.0",
+    "drizzle-kit": "^0.18.1",
+    "eslint": "^9.35.0",
+    "eslint-config-prettier": "^10.1.8",
+    "eslint-plugin-prettier": "^5.5.4",
+    "jest": "^30.1.3",
+    "prettier": "^3.6.2",
+    "supertest": "^7.1.4"
   }
 }
